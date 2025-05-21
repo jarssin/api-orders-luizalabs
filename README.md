@@ -84,10 +84,6 @@ Cada linha representa uma parte de um pedido, com campos fixos em tamanho:
    ```sh
    npm run test
    ```
-   Para testes end-to-end:
-   ```sh
-   npm run test:e2e
-   ```
 
 ---
 
@@ -102,6 +98,28 @@ Cada linha representa uma parte de um pedido, com campos fixos em tamanho:
 - **Filtros disponíveis:**
   - `order_id`: filtra por ID do pedido.
   - `start_date` e `end_date`: filtra por intervalo de datas (formato `yyyy-mm-dd`).
+
+---
+
+## 📬 Exemplos de uso via cURL
+
+### Consultar pedidos com filtros
+
+```sh
+curl --request GET \
+  --url 'http://localhost:3000/users/orders?order_id=146&start_date=2021-06-02&end_date=2021-10-18' \
+```
+
+### Importar arquivo de pedidos
+
+```sh
+curl --request POST \
+  --url http://localhost:3000/users/orders/import \
+  --header 'Content-Type: multipart/form-data' \
+  --form 'file=@CAMINHO/DO/SEU/ARQUIVO.txt'
+```
+
+> Substitua `CAMINHO/DO/SEU/ARQUIVO.txt` pelo caminho do arquivo de pedidos na sua máquina.
 
 ---
 
